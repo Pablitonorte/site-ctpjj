@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - PJJ Pará Jiu-Jitsu</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('capactpjj.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Botão de voltar para a página inicial */
+        .voltar-inicio {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--branco);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .voltar-inicio:hover {
+            color: var(--vermelho-principal);
+        }
+
+        .formulario-cadastro {
+            background-color: var(--cinza-escuro);
+            padding: 40px 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            border: 2px solid var(--vermelho-principal);
+            box-shadow: 0 0 20px rgba(184, 0, 0, 0.2);
+        }
+
+        .logo-cadastro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-cadastro img {
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .formulario-cadastro h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--branco);
+            font-size: 2rem;
+        }
+
+        .grupo-campo {
+            margin-bottom: 18px;
+        }
+
+        .grupo-campo label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--texto-cinza);
+            font-size: 0.9rem;
+        }
+
+        .grupo-campo input,
+        .grupo-campo select {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: var(--cinza-medio);
+            border: 1px solid var(--vermelho-principal);
+            color: var(--branco);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .grupo-campo input:focus,
+        .grupo-campo select:focus {
+            outline: none;
+            border-color: var(--branco);
+        }
+
+        .termos {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .termos label {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--texto-cinza);
+        }
+
+        .btn-cadastrar {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background-color: var(--vermelho-principal);
+            color: var(--branco);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-cadastrar:hover {
+            background-color: var(--vermelho-escuro);
+        }
+
+        .link-login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--texto-cinza);
+        }
+
+        .link-login a {
+            color: var(--vermelho-principal);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .link-login a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mensagem de sucesso */
+        .mensagem-sucesso {
+            display: none;
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão para voltar para a página principal -->
+    <a href="index.html" class="voltar-inicio">
+        <i class="fa-solid fa-arrow-left"></i> Voltar ao site
+    </a>
+
+    <div class="formulario-cadastro">
+        <div class="logo-cadastro">
+            <img src="logopjj.png" alt="PJJ Pará Jiu-Jitsu">
+        </div>
+        <h2>CRIE SUA CONTA</h2>
+
+        <!-- Mensagem que aparece quando cadastrar -->
+        <div id="sucesso" class="mensagem-sucesso">Cadastro realizado com sucesso! 🎉</div>
+
+        <form id="formCadastro">
+            <div class="grupo-campo">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(91) 9XXXX-XXXX" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="nascimento">Data de Nascimento</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="plano">Plano de Interesse</label>
+                <select id="plano" name="plano" required>
+                    <option value="">Selecione um plano</option>
+                    <option value="infantil">Plano Infantil</option>
+                    <option value="adulto">Plano Adulto</option>
+                    <option value="familia">Plano Família</option>
+                </select>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="confirmar-senha">Confirmar Senha</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+            </div>
+
+            <div class="termos">
+                <input type="checkbox" id="termos" name="termos" required>
+                <label for="termos">Eu aceito os termos de uso e política de privacidade</label>
+            </div>
+
+            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+        </form>
+
+        <div class="link-login">
+            Já tem uma conta? <a href="login.html">Faça login aqui</a>
+        </div>
+    </div>
+
+    <script>
+        // Código para fazer o botão funcionar
+        document.getElementById('formCadastro').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede recarregar a página
+
+            // Verifica se as senhas são iguais
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmar-senha').value;
+
+            if (senha !== confirmarSenha) {
+                alert('❌ As senhas não são iguais!');
+                return;
+            }
+
+            // Se tudo certo, mostra mensagem de sucesso
+            document.getElementById('sucesso').style.display = 'block';
+            
+            // Limpa os campos
+            this.reset();
+
+            // Depois de 2 segundos, esconde a mensagem
+            setTimeout(() => {
+                document.getElementById('sucesso').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>

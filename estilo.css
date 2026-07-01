@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1.2px;
+}
+
+.container {
+    width: 92%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+:root {
+    --vermelho-principal: #b80000;
+    --vermelho-escuro: #900000;
+    --preto: #000000;
+    --cinza-escuro: #111111;
+    --cinza-medio: #1a1a1a;
+    --branco: #ffffff;
+    --texto-cinza: #cccccc;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background-color: var(--preto);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid var(--vermelho-principal);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.cabecalho .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo img {
+    height: 70px;
+    object-fit: contain;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--vermelho-principal);
+}
+
+/* Estilos dos botões do cabeçalho */
+.botoes-cabecalho {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-vermelho {
+    background-color: var(--vermelho-principal);
+    color: var(--branco);
+    padding: 10px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-vermelho:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+.btn-branco {
+    background-color: var(--branco);
+    color: var(--preto);
+    padding: 10px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    transition: background 0.3s ease;
+    border: 1px solid var(--branco);
+}
+
+.btn-branco:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-vermelho.pequeno {
+    padding: 8px 18px;
+    font-size: 0.78rem;
+    margin-top: 15px;
+}
+
+/* Banner - COM CAPACT.PJJ.PNG */
+.banner {
+    height: 88vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('capactpjj.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.texto-banner h1 {
+    font-size: 5.5rem;
+    line-height: 1;
+    margin-bottom: 15px;
+    color: var(--branco);
+}
+
+.subtitulo {
+    color: var(--vermelho-principal);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.descricao {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: var(--texto-cinza);
+}
+
+/* Ajuste para ficar só um botão, centralizado ou alinhado */
+.botoes-banner {
+    display: flex;
+}
+
+.navegacao-banner {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.bolinha {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #444;
+    transition: background 0.3s;
+}
+
+.bolinha.ativa {
+    background-color: var(--vermelho-principal);
+}
+
+.setas {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.seta {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--branco);
+    font-size: 2.5rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.seta:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Seções Gerais */
+.secao {
+    padding: 60px 0;
+}
+
+.sobre {
+    background-color: var(--cinza-escuro);
+}
+
+.sobre .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.texto-sobre h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1;
+    color: var(--branco);
+}
+
+.texto-sobre p {
+    margin-bottom: 25px;
+    color: var(--texto-cinza);
+    font-size: 1.05rem;
+}
+
+.link-sobre {
+    color: var(--vermelho-principal);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.link-sobre:hover {
+    color: var(--vermelho-escuro);
+}
+
+.diferenciais {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.card-diferencial {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: var(--cinza-medio);
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.card-diferencial:hover {
+    transform: translateY(-5px);
+}
+
+.card-diferencial i {
+    font-size: 2.8rem;
+    color: var(--vermelho-principal);
+    margin-bottom: 12px;
+}
+
+.card-diferencial h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card-diferencial p {
+    font-size: 0.9rem;
+    color: var(--texto-cinza);
+}
+
+/* Horários + Benefícios */
+.horarios-beneficios {
+    background-color: var(--preto);
+}
+
+.horarios-beneficios .container {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: var(--branco);
+}
+
+.tabela-horarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.tabela-horarios th,
+.tabela-horarios td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #222;
+    font-size: 0.9rem;
+}
+
+.tabela-horarios th {
+    background-color: var(--vermelho-principal);
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.tabela-horarios tr:hover {
+    background-color: var(--cinza-medio);
+}
+
+.grade-beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card-beneficio {
+    text-align: center;
+    padding: 15px;
+}
+
+.card-beneficio i {
+    font-size: 2.4rem;
+    color: var(--vermelho-principal);
+    margin-bottom: 10px;
+}
+
+.card-beneficio h4 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.card-beneficio p {
+    font-size: 0.88rem;
+    color: var(--texto-cinza);
+}
+
+/* Planos */
+.planos {
+    background-color: var(--cinza-escuro);
+}
+
+.planos .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card-plano {
+    background-color: var(--cinza-medio);
+    padding: 35px 25px;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #222;
+    transition: transform 0.3s ease;
+}
+
+.card-plano:hover {
+    transform: translateY(-5px);
+}
+
+.card-plano.destaque {
+    transform: scale(1.06);
+    border-color: var(--vermelho-principal);
+    background-color: #202020;
+}
+
+.etiqueta {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--vermelho-principal);
+    color: var(--branco);
+    padding: 5px 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+
+.card-plano i {
+    font-size: 3rem;
+    color: var(--vermelho-principal);
+    margin-bottom: 15px;
+}
+
+.card-plano h3 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.card-plano p {
+    color: var(--texto-cinza);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.card-plano ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.card-plano li {
+    padding: 6px 0;
+    font-size: 0.95rem;
+    color: var(--texto-cinza);
+}
+
+/* Galeria */
+.galeria {
+    text-align: center;
+    background-color: var(--preto);
+}
+
+.fotos-galeria {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.fotos-galeria img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 3px;
+    transition: opacity 0.3s;
+}
+
+.fotos-galeria img:hover {
+    opacity: 0.85;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: var(--preto);
+    padding: 45px 0 15px;
+    border-top: 2px solid var(--vermelho-principal);
+}
+
+.rodape .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.logo-rodape img {
+    height: 80px;
+    object-fit: contain;
+}
+
+.coluna-rodape h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #ddd;
+}
+
+.coluna-rodape p,
+.coluna-rodape a {
+    font-size: 0.9rem;
+    color: var(--texto-cinza);
+    text-decoration: none;
+    margin-bottom: 7px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.coluna-rodape a:hover {
+    color: var(--vermelho-principal);
+}
+
+.redes {
+    display: flex;
+    gap: 15px;
+}
+
+.redes a {
+    font-size: 1.5rem;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .cabecalho .container,
+    .sobre .container,
+    .horarios-beneficios .container,
+    .planos .container,
+    .rodape .container {
+        grid-template-columns: 1fr;
+    }
+
+    .diferenciais,
+    .grade-beneficios,
+    .fotos-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .texto-banner h1 {
+        font-size: 4rem;
+    }
+
+    .botoes-cabecalho {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 580px) {
+    .diferenciais,
+    .grade-beneficios,
+    .fotos-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .menu {
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .texto-banner h1 {
+        font-size: 3rem;
+    }
+
+    .botoes-cabecalho {
+        width: 100%;
+        justify-content: center;
+    }
+}

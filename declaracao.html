@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração - PJJ Pará Jiu-Jitsu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f0f0;
+            font-family: 'Times New Roman', serif;
+            padding: 20px;
+        }
+
+        /* ESTILO EXATO DA DECLARAÇÃO - TAMANHO A4 */
+        .documento-area {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 25mm;
+            box-sizing: border-box;
+            color: black;
+            font-size: 12pt;
+            line-height: 1.5;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .cabecalho-doc { text-align: center; margin-bottom: 5mm; }
+        .logo-cabecalho {
+            width: 160mm;
+            height: auto;
+            margin: 0 auto 3mm auto;
+            display: block;
+            border: 2px solid #008000;
+            padding: 2px;
+            border-radius: 2px;
+        }
+        .data-doc { text-align: right; font-size: 12pt; margin-bottom: 10mm; margin-top: 0; }
+        .destinatario { text-align: left; font-size: 12pt; margin-bottom: 10mm; }
+        .titulo-doc { text-align: center; font-weight: bold; font-size: 12pt; margin: 8mm 0; text-transform: uppercase; }
+        .corpo-doc { text-align: justify; font-size: 12pt; margin-bottom: 30mm; width: 160mm; margin-left: auto; margin-right: auto; }
+        .assinatura-doc { text-align: center; margin-top: 10mm; position: relative; width: 160mm; margin-left: auto; margin-right: auto; margin-bottom: 8mm; }
+        .linha-assinatura { border-top: 1px solid #000; width: 60mm; position: absolute; top: 15px; left: 50%; transform: translateX(-50%); background: white; z-index: 2; }
+        .img-assinatura { height: 35px; width: 60mm; display: block; margin: 0 auto 5px auto; background: white; padding: 0; object-fit: contain; position: relative; z-index: 1; }
+        .nome-assinatura { font-weight: bold; font-size: 12pt; margin: 0; position: relative; z-index: 3; }
+        .cargo-assinatura { font-size: 11pt; margin: 0; position: relative; z-index: 3; }
+        .texto-rodape { font-size: 10pt; line-height: 1.3; text-align: center; width: 160mm; margin: 0 auto; display: block; position: static; }
+
+        /* BOTÃO DE IMPRIMIR */
+        .botoes-acao {
+            width: 210mm;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .btn-acao {
+            background-color: #D10000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .btn-acao:hover {
+            background-color: #FF1A1A;
+        }
+
+        /* 🔴 IMPRESSÃO PERFEITA - SÓ 1 PÁGINA 🔴 */
+        @page { 
+            size: A4; 
+            margin: 0; 
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .botoes-acao {
+                display: none !important;
+            }
+            .documento-area {
+                width: 210mm !important;
+                height: 297mm !important;
+                min-height: auto !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                page-break-after: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÁREA DA DECLARAÇÃO -->
+    <div class="documento-area">
+        <div class="cabecalho-doc">
+            <img src="logo-fejjpa.png" alt="Federação de Jiu-Jitsu do Estado do Pará" class="logo-cabecalho">
+        </div>
+        
+        <div class="data-doc">BELÉM – PA, <span id="data-atual"></span></div>
+        
+        <div class="destinatario">Ao <span id="texto-escola">[NOME DA INSTITUIÇÃO]</span></div>
+        
+        <div class="titulo-doc">DECLARAÇÃO</div>
+        
+        <div class="corpo-doc">
+            A Federação de Jiu Jitsu do Estado do Pará declara para os devidos fins, que o atleta <span id="texto-nome-aluno">[NOME DO ATLETA]</span>, pertence a academia PARÁ JIU JITSU e é filiado e devidamente regularizado.<br><br>
+            A mesmo precisará se ausentar no dia <span id="texto-periodo">[PERÍODO]</span> do corrente ano para representar sua equipe no <span id="texto-campeonato">[NOME DO CAMPEONATO]</span>, que acontecerá na cidade de <span id="texto-cidade">[CIDADE / ESTADO]</span><br><br>
+            Atenciosamente,
+        </div>
+        
+        <div class="assinatura-doc">
+            <div class="linha-assinatura"></div>
+            <img src="assinatura-ricardo.png" alt="Assinatura Ricardo Cândido Gomes" class="img-assinatura">
+            <div class="nome-assinatura">Ricardo Candido Gomes</div>
+            <div class="cargo-assinatura">Presidente</div>
+        </div>
+        
+        <div class="texto-rodape">
+            Este documento tem validade de 30 dias a partir da sua expedição para dar entrada em órgãos privados ou públicos.<br>
+            Contatos: (91) 8356-0215
+        </div>
+    </div>
+
+    <!-- BOTÃO DE IMPRIMIR -->
+    <div class="botoes-acao">
+        <button class="btn-acao" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir Declaração</button>
+    </div>
+
+    <script>
+        // Pegar dados que vieram da página principal (se houver)
+        const params = new URLSearchParams(window.location.search);
+        
+        // Preencher os campos com os dados enviados ou deixar padrão
+        document.getElementById('texto-nome-aluno').textContent = params.get('nome') || 'Pablo Henrique da Silva';
+        document.getElementById('texto-escola').textContent = params.get('escola') || '[NOME DA INSTITUIÇÃO]';
+        document.getElementById('texto-periodo').textContent = params.get('periodo') || '[PERÍODO]';
+        document.getElementById('texto-campeonato').textContent = params.get('campeonato') || '[NOME DO CAMPEONATO]';
+        document.getElementById('texto-cidade').textContent = params.get('cidade') || '[CIDADE / ESTADO]';
+
+        // Função para data atual
+        function obterDataAtual() {
+            const hoje = new Date();
+            const meses = ["janeiro", "fevereiro", "março", "abril", "Maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+            return `${hoje.getDate()} de ${meses[hoje.getMonth()]} de ${hoje.getFullYear()}`;
+        }
+        document.getElementById('data-atual').textContent = obterDataAtual();
+    </script>
+
+</body>
+</html>
