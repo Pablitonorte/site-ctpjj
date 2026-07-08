@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Login - PJJ Pará Jiu-Jitsu</title>
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,76 +18,85 @@
             min-height: 100vh;
             padding: 20px;
             position: relative;
+            margin: 0;
         }
 
         .voltar-inicio {
             position: absolute;
             top: 20px;
             left: 20px;
-            color: var(--branco);
+            color: #ffffff;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
+            gap: 8px;
+            font-size: 1rem;
             transition: color 0.3s;
+            z-index: 10;
         }
 
         .voltar-inicio:hover {
-            color: var(--vermelho-principal);
+            color: #D10000;
         }
 
         .formulario-login {
-            background-color: var(--cinza-escuro);
-            padding: 40px 30px;
-            border-radius: 8px;
+            /* Fundo sólido, sem transparência */
+            background-color: #151515;
+            padding: 35px 30px;
+            border-radius: 10px;
             width: 100%;
             max-width: 400px;
-            border: 2px solid var(--vermelho-principal);
-            box-shadow: 0 0 20px rgba(184, 0, 0, 0.2);
+            border: 2px solid #D10000;
+            box-shadow: 0 0 25px rgba(209, 0, 0, 0.25);
         }
 
         .logo-login {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .logo-login img {
-            height: 80px;
+            height: 85px;
+            width: auto;
             object-fit: contain;
         }
 
         .formulario-login h2 {
             text-align: center;
-            margin-bottom: 25px;
-            color: var(--branco);
-            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 800;
         }
 
         .grupo-campo {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .grupo-campo label {
             display: block;
-            margin-bottom: 6px;
-            color: var(--texto-cinza);
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #B0B0B0;
+            font-size: 0.95rem;
         }
 
         .grupo-campo input {
+            /* Fundo sólido nos campos */
+            background-color: #0A0A0A;
+            border: 1px solid #D10000;
+            color: #ffffff;
             width: 100%;
-            padding: 10px 12px;
-            background-color: var(--cinza-medio);
-            border: 1px solid var(--vermelho-principal);
-            color: var(--branco);
-            border-radius: 4px;
-            font-size: 0.95rem;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+            margin: 0;
         }
 
         .grupo-campo input:focus {
             outline: none;
-            border-color: var(--branco);
+            border-color: #ffffff;
+            box-shadow: 0 0 0 2px rgba(209, 0, 0, 0.2);
         }
 
         .esquecer-senha {
@@ -96,43 +105,44 @@
         }
 
         .esquecer-senha a {
-            color: var(--texto-cinza);
-            font-size: 0.85rem;
+            color: #B0B0B0;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .esquecer-senha a:hover {
-            color: var(--vermelho-principal);
+            color: #D10000;
         }
 
         .btn-login {
             width: 100%;
-            padding: 12px;
-            font-size: 1rem;
+            padding: 14px;
+            font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
-            background-color: var(--vermelho-principal);
-            color: var(--branco);
+            background-color: #D10000;
+            color: #ffffff;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s ease;
         }
 
         .btn-login:hover {
-            background-color: var(--vermelho-escuro);
+            background-color: #FF1A1A;
+            transform: translateY(-1px);
         }
 
         .link-cadastro {
             text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--texto-cinza);
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: #B0B0B0;
         }
 
         .link-cadastro a {
-            color: var(--vermelho-principal);
+            color: #D10000;
             text-decoration: none;
             font-weight: 700;
         }
@@ -144,12 +154,23 @@
         #erroLogin {
             display: none;
             background-color: #e74c3c;
-            color: white;
-            padding: 10px;
+            color: #ffffff;
+            padding: 12px;
             text-align: center;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Ajuste para telas menores */
+        @media (max-width: 400px) {
+            .formulario-login {
+                padding: 25px 20px;
+            }
+            .formulario-login h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -194,22 +215,22 @@
         document.getElementById('formLogin').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const email = document.getElementById('emailLogin').value;
-            const senha = document.getElementById('senhaLogin').value;
+            const email = document.getElementById('emailLogin').value.trim();
+            const senha = document.getElementById('senhaLogin').value.trim();
 
             // ✅ ADMINISTRADOR
             if (email === "admin@pjj.com.br" && senha === "123456") {
                 alert("🔐 Acesso Permitido! Entrando no PAINEL ADMINISTRATIVO...");
-                window.location.href = "admin.html"; // Vai para área de ADM
+                window.location.href = "admin.html";
             }
             
-            // ✅ ALUNO (qualquer outro cadastro ou exemplo)
+            // ✅ ALUNO
             else if (email === "aluno@pjj.com.br" && senha === "123456") {
                 alert("✅ Bem-vindo! Entrando na Área do Aluno...");
-                window.location.href = "aluno.html"; // Vai para área do ALUNO
+                window.location.href = "aluno.html";
             }
 
-            // ❌ Dados errados
+            // ❌ Dados incorretos
             else {
                 document.getElementById('erroLogin').style.display = 'block';
                 setTimeout(() => {
